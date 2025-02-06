@@ -26,3 +26,7 @@ window/stretch/mode="viewport"
 
 2d_navigation/layer_1="Terrain"
 2d_navigation/layer_2="Water"
+
+[rendering]
+
+textures/vram_compression/import_etc2_astc=true

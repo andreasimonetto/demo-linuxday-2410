@@ -1,7 +1,9 @@
-[gd_scene load_steps=9 format=4 uid="uid://bo7p216kiko7t"]
+[gd_scene load_steps=11 format=4 uid="uid://bo7p216kiko7t"]
 
 [ext_resource type="Texture2D" uid="uid://b5gv12upluoes" path="res://tileset-2.png" id="1_2sdxq"]
-[ext_resource type="PackedScene" uid="uid://crht8e77338ew" path="res://Player.tscn" id="2_uldju"]
+[ext_resource type="Script" path="res://Level.gd" id="1_jd7hj"]
+[ext_resource type="PackedScene" uid="uid://crht8e77338ew" path="res://MyChar.tscn" id="2_uldju"]
+[ext_resource type="PackedScene" uid="uid://cynystnt5cwlg" path="res://PlayerController.tscn" id="3_tk158"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oct0x"]
 texture = ExtResource("1_2sdxq")
@@ -436,6 +438,7 @@ sources/0 = SubResource("TileSetAtlasSource_lpyyf")
 
 [node name="World" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_jd7hj")
 
 [node name="water" type="TileMapLayer" parent="."]
 texture_filter = 1
@@ -453,10 +456,10 @@ texture_filter = 1
 tile_map_data = PackedByteArray("AAADAAUAAAAFAAcAAAADAA0AAAADAAcAAAAEAAgAAAAGAAgAAAAMABUAAAAGAAgAAAAOAAYAAAADAAcAAAAPABQAAAADAAcAAAAQAAsAAAAFAAcAAAAQAA4AAAAGAAgAAAASAA4AAAADAAcAAAAVAAcAAAADAAcAAAAWAAkAAAAGAAgAAAAWAA0AAAAGAAgAAAAXAAEAAAADAAcAAAAXABQAAAAFAAcAAAAZAA0AAAADAAcAAAAbAAAAAAADAAcAAAAbAAoAAAAGAAgAAAAbABkAAAADAAcAAAAcAAEAAAAFAAcAAAAjAAcAAAADAAcAAAAaABsAAAAGAAgAAAAoABYAAAAFAAgAAAAoABcAAAAGAAgAAAAoABgAAAAFAAgAAAAoABkAAAAFAAgAAAApABYAAAAFAAgAAAApABcAAAAFAAgAAAApABgAAAAFAAgAAAApABkAAAAFAAgAAAAqABYAAAAGAAgAAAAqABcAAAAFAAgAAAAqABgAAAAGAAgAAAAqABkAAAAFAAgAAAArABYAAAAFAAgAAAArABcAAAAFAAgAAAArABgAAAAFAAgAAAArABkAAAAFAAgAAAAnABgAAAAFAAgAAAAnABcAAAAFAAgAAAAnABUAAAAFAAgAAAAnABYAAAAFAAgAAAAmABcAAAAFAAgAAAAmABYAAAAFAAgAAAAmABUAAAAGAAgAAAAmABQAAAAFAAgAAAAlABYAAAAFAAgAAAAlABUAAAAFAAgAAAAlABQAAAAFAAgAAAAmABgAAAAGAAgAAAA=")
 tile_set = SubResource("TileSet_e07et")
 
-[node name="Player" parent="." instance=ExtResource("2_uldju")]
+[node name="MyChar" parent="." instance=ExtResource("2_uldju")]
 position = Vector2(314, 195)
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D" type="Camera2D" parent="MyChar"]
 limit_left = 0
 limit_top = 0
 limit_right = 800
@@ -467,3 +470,5 @@ drag_horizontal_enabled = true
 drag_vertical_enabled = true
 editor_draw_limits = true
 editor_draw_drag_margin = true
+
+[node name="PlayerController" parent="MyChar" instance=ExtResource("3_tk158")]
